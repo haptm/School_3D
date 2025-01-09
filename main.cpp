@@ -10,8 +10,7 @@
 #include<glm/gtx/vector_angle.hpp>
 
 #include"Cube.h"
-
-
+#include"SampleBuilding.h"
 
 #define WINDOW_WIDTH 800
 #define WINDOW_HEIGHT 800
@@ -29,6 +28,7 @@ float sensitivity = 100.0f;
 float halfWidth = (float)(WINDOW_WIDTH / 2.0);
 float halfHeight = (float)(WINDOW_HEIGHT / 2.0);
 
+
 void renderScene(void) {
 
 	// Clear Color and Depth Buffers
@@ -43,12 +43,9 @@ void renderScene(void) {
 		cameraUp.x, cameraUp.y, cameraUp.z);
 	//Draw thing -------------------------------------------------------
 	
-	// Draw a Cube
-	Cube cube(glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 0.0f, 0.0f), 1.0f);
-	cube.draw();
+	SampleBuilding building(glm::vec3(2.0f, 0.0f, 0.0f), glm::vec3(0.0f, 0.0f, 0.0f), 1.0f);
 
-	Cube cube2(glm::vec3(10.0f, 0.0f, 0.0f), glm::vec3(0.0f, 45.0f, 0.0f), 1.5f);
-	cube2.draw();
+	building.draw();
 
 
 	// End of drawing ---------------------------------------------------
