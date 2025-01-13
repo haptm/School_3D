@@ -398,3 +398,5 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+/School_3D.vcxproj
+/School_3D.vcxproj.filters

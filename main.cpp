@@ -2,6 +2,7 @@
 #include <math.h>
 #include <string.h>
 #include <GL/glut.h>
+#include<stb/stb_image.h>
 #define GLM_ENABLE_EXPERIMENTAL
 #include<glm/glm.hpp>
 #include<glm/gtc/matrix_transform.hpp>
@@ -29,6 +30,31 @@ float sensitivity = 100.0f;
 float halfWidth = (float)(WINDOW_WIDTH / 2.0);
 float halfHeight = (float)(WINDOW_HEIGHT / 2.0);
 
+//Test
+GLuint textureID;
+
+void nohaLoadTexture() {
+	int width, height, channels;
+	stbi_set_flip_vertically_on_load(true);
+
+	unsigned char* data = stbi_load("texture\\bklogo.png", &width, &height, &channels, 0);
+	if (data == NULL) {
+		printf("Failed to load image\n");
+		exit(1);
+	}
+
+	glGenTextures(1, &textureID);
+	glBindTexture(GL_TEXTURE_2D, textureID);
+
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
+
+	stbi_image_free(data);
+}
+
 
 void renderScene(void) {
 
@@ -42,13 +68,6 @@ void renderScene(void) {
 	gluLookAt(cameraPosition.x, cameraPosition.y, cameraPosition.z,
 		cameraPosition.x + cameraOrientation.x, cameraPosition.y + cameraOrientation.y, cameraPosition.z + cameraOrientation.z,
 		cameraUp.x, cameraUp.y, cameraUp.z);
-	//Draw thing -------------------------------------------------------
-<<<<<<< Updated upstream
-	
-	SampleBuilding building(glm::vec3(2.0f, 0.0f, 0.0f), glm::vec3(0.0f, 0.0f, 0.0f), 1.0f);
-
-	building.draw();
-=======
 
 	glEnable(GL_TEXTURE_2D);
 	glBindTexture(GL_TEXTURE_2D, textureID);
@@ -69,8 +88,6 @@ void renderScene(void) {
 	/*Floor floor(glm::vec3(2.0f, 0.0f, 0.0f), glm::vec3(0.0f, 0.0f, 0.0f), 1.0f);
 
 	floor.draw();*/
->>>>>>> Stashed changes
-
 
 	// End of drawing ---------------------------------------------------
 
