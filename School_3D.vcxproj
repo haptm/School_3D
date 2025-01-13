@@ -144,11 +144,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Cube.cpp" />
+    <ClCompile Include="Floor.cpp" />
+    <ClCompile Include="FrontFace.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="SampleBuilding.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Cube.h" />
+    <ClInclude Include="Floor.h" />
+    <ClInclude Include="FrontFace.h" />
     <ClInclude Include="SampleBuilding.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

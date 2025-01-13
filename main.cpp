@@ -11,13 +11,14 @@
 
 #include"Cube.h"
 #include"SampleBuilding.h"
+#include"Floor.h"
 
 #define WINDOW_WIDTH 800
 #define WINDOW_HEIGHT 800
 
 using namespace std;
 // Camera variables
-glm::vec3 cameraPosition = glm::vec3(0.0f, 0.0f, 5.0f);
+glm::vec3 cameraPosition = glm::vec3(0.0f, 0.0f, 20.0f);
 glm::vec3 cameraOrientation = glm::vec3(0.0f, 0.0f, -1.0f);
 glm::vec3 cameraUp = glm::vec3(0.0f, 1.0f, 0.0f);
 
@@ -42,10 +43,33 @@ void renderScene(void) {
 		cameraPosition.x + cameraOrientation.x, cameraPosition.y + cameraOrientation.y, cameraPosition.z + cameraOrientation.z,
 		cameraUp.x, cameraUp.y, cameraUp.z);
 	//Draw thing -------------------------------------------------------
+<<<<<<< Updated upstream
 	
 	SampleBuilding building(glm::vec3(2.0f, 0.0f, 0.0f), glm::vec3(0.0f, 0.0f, 0.0f), 1.0f);
 
 	building.draw();
+=======
+
+	glEnable(GL_TEXTURE_2D);
+	glBindTexture(GL_TEXTURE_2D, textureID);
+	// Draw a textured quad
+	/*glBegin(GL_QUADS);
+	glTexCoord2f(0.0f, 0.0f); glVertex3f(-1.0f, -1.0f, 0.0f);
+	glTexCoord2f(1.0f, 0.0f); glVertex3f(1.0f, -1.0f, 0.0f);
+	glTexCoord2f(1.0f, 1.0f); glVertex3f(1.0f, 1.0f, 0.0f);
+	glTexCoord2f(0.0f, 1.0f); glVertex3f(-1.0f, 1.0f, 0.0f);
+	glEnd();
+
+	glDisable(GL_TEXTURE_2D);*/
+	
+	SampleBuilding building(glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 0.0f, 0.0f), 1.0f);
+
+	building.draw();
+
+	/*Floor floor(glm::vec3(2.0f, 0.0f, 0.0f), glm::vec3(0.0f, 0.0f, 0.0f), 1.0f);
+
+	floor.draw();*/
+>>>>>>> Stashed changes
 
 
 	// End of drawing ---------------------------------------------------
